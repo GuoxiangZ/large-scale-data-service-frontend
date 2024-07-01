@@ -1,13 +1,17 @@
 import React from 'react';
 import './App.css';
 import DataDisplay from './dataDisplay';
+import Intro from './intro';
+import Filter from './filter'
 
 function App() {
   return (
     <div className="App">
         <header className="App-header">
-            <h1>Welcome to My React App</h1>
+            <Intro/>
+            <Filter/>
             <DataDisplay />
+            
         </header>
     </div>
   );

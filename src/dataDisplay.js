@@ -6,7 +6,7 @@ const DataDisplay = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('https://fkyv1ocmo5.execute-api.us-west-2.amazonaws.com/dev/getmockdata?catalog=1&createDate="2025-05-01"')  
+        fetch('https://fkyv1ocmo5.execute-api.us-west-2.amazonaws.com/dev/getmockdata?catalog=1&createDate=2025-05-01')  
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
