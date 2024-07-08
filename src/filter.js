@@ -1,5 +1,5 @@
-import styled from "styled-components";
-
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
 const FilterContainer = styled.div`
   width: 100%;
@@ -8,7 +8,6 @@ const FilterContainer = styled.div`
   justify-content: center;
   align-items: center;
   background: linear-gradient(to right, #000, #333);
-
 `;
 
 const SearchBar = styled.div`
@@ -41,8 +40,8 @@ const Form = styled.input`
     border-color: #854CE6;
     box-shadow: 2px 2px 10px rgba(133, 76, 230, 0.5);
   }
-
 `;
+
 const ApplyButton = styled.button`
   padding: 10px 20px;
   font-size: 20px;
@@ -53,33 +52,32 @@ const ApplyButton = styled.button`
   border-radius: 8px; 
   cursor: pointer;
   
-  
-
   &:hover {
     background-color: #5a3cb6;
   }
-
 `;
 
-function Filter(){
-    return(
-      <FilterContainer>
-        <SearchBar>
-            <Text> Catalog</Text>
-            <Form/>
+function Filter({ onApply }) {
+  const [localCatalog, setLocalCatalog] = useState('');
+  const [localCreateDate, setLocalCreateDate] = useState('');
 
-        </SearchBar>
+  const handleApply = () => {
+    onApply(localCatalog, localCreateDate);
+  };
 
-        <SearchBar>
-            <Text> CreateDate</Text>
-            <Form/>
-        </SearchBar>
-        <ApplyButton> Apply </ApplyButton>
-      </FilterContainer>
-  
-    )
-  
-  
-  }
-  export default Filter;
-  
+  return (
+    <FilterContainer>
+      <SearchBar>
+        <Text>Catalog</Text>
+        <Form value={localCatalog} onChange={(e) => setLocalCatalog(e.target.value)} />
+      </SearchBar>
+      <SearchBar>
+        <Text>CreateDate</Text>
+        <Form value={localCreateDate} onChange={(e) => setLocalCreateDate(e.target.value)} />
+      </SearchBar>
+      <ApplyButton onClick={handleApply}>Apply</ApplyButton>
+    </FilterContainer>
+  );
+}
+
+export default Filter;

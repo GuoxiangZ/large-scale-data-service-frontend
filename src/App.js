@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import DataDisplay from './dataDisplay';
+import Filter from './filter';
+import Table from './table';
 import Intro from './intro';
-import Filter from './filter'
+
+
 
 function App() {
+
   return (
     <div className="App">
-        <header className="App-header">
-            <Intro/>
-            <Filter/>
-            <DataDisplay />
-            
-        </header>
+      <header className="App-header">
+        <Intro/>
+
+    
+        <Table />
+      </header>
     </div>
   );
 }

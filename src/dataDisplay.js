@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Table from './table'
 
 const DataDisplay = () => {
     const [data, setData] = useState(null);
@@ -33,10 +34,12 @@ const DataDisplay = () => {
 
     return (
         <div>
-            <h1>API Data</h1>
-            <pre>{JSON.stringify(data, null, 2)}</pre>
+            <Table data={data} />
         </div>
     );
 };
+
+
+
 
 export default DataDisplay;
